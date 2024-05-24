@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Playlist</string>
+    <string name="my_playlist">My Playlist</string>
+    <string name="annie_marie_2002">Annie Marie - 2002</string>
+    <string name="maroon5_memories">Maroon5 - Memories</string>
+    <string name="austin_mahone_send_it">Austin Mahone - Send It</string>
+    <string name="ariana_grande_positions">Ariana Grande - Positions</string>
+    <string name="dua_lipa_new_rules">Dua Lipa - New Rules</string>
+</resources>
