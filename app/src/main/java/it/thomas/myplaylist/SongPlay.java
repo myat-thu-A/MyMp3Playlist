@@ -44,6 +44,7 @@ public class SongPlay extends AppCompatActivity {
     }
 
     private void initSeekbar() {
+        seekBar = findViewById(R.id.seekbar);
         handler = new Handler();
         updateSeekbar = new Runnable() {
             @Override
@@ -67,6 +68,7 @@ public class SongPlay extends AppCompatActivity {
             }
             data = mySongs.get(artistIndex);
             updatePlayer();
+            seekBar.setProgress(0);
         });
 
         btPause.setOnClickListener(v -> {
@@ -89,6 +91,7 @@ public class SongPlay extends AppCompatActivity {
             }
             data = mySongs.get(artistIndex);
             updatePlayer();
+            seekBar.setProgress(0);
         });
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -128,6 +131,7 @@ public class SongPlay extends AppCompatActivity {
         exoPlayer.setMediaItem(MediaItem.fromUri(song));
         exoPlayer.prepare();
         exoPlayer.play();
+        exoPlayer.seekTo(0);
     }
 
     private void initUI() {
@@ -136,7 +140,7 @@ public class SongPlay extends AppCompatActivity {
         btNext = findViewById(R.id.bt_next);
         btPrev = findViewById(R.id.bt_prev);
         btPause = findViewById(R.id.bt_pause);
-        seekBar = findViewById(R.id.seekbar);
+
     }
 
     private void initDataFromIntent() {
