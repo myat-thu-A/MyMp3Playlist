@@ -22,7 +22,17 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     
     private CardView cdAnnie, cdMaroon, cdDualipa, cdAriana, cdAustin;
-    private ExoPlayer exoPlayer;
+    private static ExoPlayer exoPlayer;
+
+    private Intent intent;
+
+    static final List<Data> mySongs = List.of(
+            new Data("Annie Marie", R.drawable.anne_marie, R.raw.anne_marie_twozerozerotwo),
+            new Data("Maroon5", R.drawable.maroon, R.raw.memories_maroon),
+            new Data("Dua Lipa", R.drawable.dualipa, R.raw.newrules_dualipa),
+            new Data("Ariana Grande", R.drawable.ariana, R.raw.positions_ariana),
+            new Data("Austin Mahone", R.drawable.austin, R.raw.sendit)
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initUI();
     }
+
+
 
 
     private void initUI() {
@@ -40,37 +52,25 @@ public class MainActivity extends AppCompatActivity {
         cdAustin = findViewById(R.id.cdAustin);
     }
 
-    private void updatePlayer(Integer s) {
-        exoPlayer = new ExoPlayer.Builder(this).build();
-        @OptIn(markerClass = UnstableApi.class) Uri song = RawResourceDataSource.buildRawResourceUri(s);
-        exoPlayer.setMediaItem(MediaItem.fromUri(song));
-        exoPlayer.prepare();
-        exoPlayer.play();
-
-    }
-
-    public void songClicked(View view) {
-        int clickId = view.getId();
-        if(clickId == R.id.cdAnnie) {
-            Intent annie = new Intent(this, AnnieMarie.class);
-            startActivity(annie);
-            updatePlayer(R.raw.anne_marie_twozerozerotwo);
-        } else if (clickId == R.id.cdMaroon) {
-            Intent maroon = new Intent(this, Maroon.class);
-            startActivity(maroon);
-            updatePlayer(R.raw.memories_maroon);
-        } else if (clickId == R.id.cdDualipa) {
-            Intent dualipa = new Intent(this, DuaLipa.class);
-            startActivity(dualipa);
-            updatePlayer(R.raw.newrules_dualipa);
-        } else if (clickId == R.id.cdAriana) {
-            Intent ariana = new Intent(this, Ariana.class);
-            startActivity(ariana);
-            updatePlayer(R.raw.positions_ariana);
-        } else {
-            Intent austin = new Intent(this, Austin.class);
-            startActivity(austin);
-            updatePlayer(R.raw.sendit);
+    public void onSongClick(View view) {
+        intent = new Intent(this, SongPlay.class);
+        if(view.getId() == R.id.cdAnnie) {
+            intent.putExtra("artist_index", 0);
+            intent.putExtra("artist", mySongs.get(0));
+        } else if (view.getId() == R.id.cdMaroon) {
+            intent.putExtra("artist_index", 1);
+            intent.putExtra("artist", mySongs.get(1));
+        } else if (view.getId() == R.id.cdDualipa) {
+            intent.putExtra("artist_index", 2);
+            intent.putExtra("artist", mySongs.get(2));
+        } else if (view.getId() == R.id.cdAriana) {
+            intent.putExtra("artist_index", 3);
+            intent.putExtra("artist", mySongs.get(3));
+        } else if (view.getId() == R.id.cdAustin) {
+            intent.putExtra("artist_index", 4);
+            intent.putExtra("artist", mySongs.get(4));
         }
+        startActivity(intent);
     }
+
 }

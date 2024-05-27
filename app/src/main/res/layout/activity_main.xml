@@ -22,7 +22,7 @@
         android:textSize="@dimen/_20ssp"/>
 
     <androidx.cardview.widget.CardView
-        android:onClick="songClicked"
+        android:onClick="onSongClick"
         android:id="@+id/cdAnnie"
         android:layout_marginTop="@dimen/_50sdp"
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="songClicked"
+        android:onClick="onSongClick"
         android:id="@+id/cdMaroon"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_width="match_parent"
@@ -66,7 +66,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="songClicked"
+        android:onClick="onSongClick"
         android:id="@+id/cdDualipa"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_width="match_parent"
@@ -88,7 +88,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="songClicked"
+        android:onClick="onSongClick"
         android:id="@+id/cdAriana"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_width="match_parent"
@@ -110,7 +110,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="songClicked"
+        android:onClick="onSongClick"
         android:id="@+id/cdAustin"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_width="match_parent"
